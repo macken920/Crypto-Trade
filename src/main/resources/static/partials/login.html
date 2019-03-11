@@ -1,0 +1,28 @@
+<div ng-show="!authenticated">
+
+		<!-- One -->
+	<section id="One" class="wrapper style3">
+		<div class="inner">				
+			<header class="align-center">
+				<h2>Logowanie</h2>
+			</header>
+		<form>
+			<div class="6u 12u$(xsmall)">
+				<input type="text" placeholder="E-mail" ng-model="authController.credentials.username"><br>
+				<input type="password" placeholder="Password" ng-model="authController.credentials.password"><br>
+				<a ng-click="authController.login()" href="angularMain.html#!/orderspricingdetails" class="button special">Login</a>
+			</div>
+		</form>
+		</div>
+	</section>
+</div>
+<div ng-show="authenticated">
+	<section id="One" class="wrapper style3">
+		<div class="inner">				
+			<header class="align-center">
+				<h2>Do you really want to logout?</h2>
+			</header>
+			<button href="index.html" ng-click="authController.logout()">Logout</button>
+		</div>
+	</section>
+</div>

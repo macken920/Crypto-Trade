@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+	<head>
+			<title>Crypto Trade</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">Crypto Trade</a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="angularMain.html#!/orderspricingdetails">Handluj</a></li>
+					<li><a href="angularMain.html#!/updates">Aktualizacje serwisu</a></li>
+					<li><a href="angularMain.html#!/contact">Kontakt</a></li>
+					<li><a ng-show="!authenticated" href="angularMain.html#!/register">Register</a></li>
+					<li><a ng-show="!authenticated" href="angularMain.html#!/login">Zaloguj się</a></li>
+					<li><a ng-show="authenticated" href="angularMain.html#!/login">Wyloguj sie</a></li>
+				</ul>
+			</nav>
+
+
+		<!-- Angular -->		
+		<div ng-view></div>
+
+		
+		
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Crypto Trade. All rights reserved.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+			<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+			<script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
+			<script type="text/javascript" src="js/app.js"></script>
+	
+		
+	</body>
+</html>

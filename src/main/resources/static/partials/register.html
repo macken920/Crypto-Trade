@@ -1,0 +1,28 @@
+<div ng-show="!authenticated">
+
+	<section id="One" class="wrapper style3">
+		<div class="inner">				
+			<header class="align-center">
+				<h2>Rejestracja</h2>
+			</header>
+	
+	<form>
+		<div class="6u 12u$(xsmall)">
+			<input type="email" placeholder="E-mail" ng-model="registerCtrl.user.email" errormsg="Nieprawid³owy adres e-mail." nullmsg="To pole jest wymagane."><br>
+		</div>
+		<div class="6u 12u$(xsmall)">
+			<input type="password" placeholder="Password" ng-model="registerCtrl.user.password"><br>
+		</div>
+		
+		<a ng-click="registerCtrl.saveUser()" href="angularMain.html#!/login" class="button special">Rejestracja</a>
+
+	</form>
+			</div>
+	</section>
+</div>
+
+
+<div ng-show="authenticated">
+	<h1>Jesteœ ju¿ zarejestrowany</h1>>
+</div>
+

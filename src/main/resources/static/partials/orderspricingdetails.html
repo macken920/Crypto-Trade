@@ -1,0 +1,114 @@
+<div ng-show="authenticated">
+	<section id="One" class="wrapper style3">
+		<div class="inner">				
+			<header class="align-center">
+
+			</header>
+			
+			
+			<!-- Table -->
+			<div ng-controller="UserBalanceController as ubc">
+			<h4>Balans twojego kotna wynosi: {{ubc.balans[0].balans}} Bitcoin</h4>
+			</div>
+			
+			<h4>Poprzez klikniecie wybierz pare ktora chcesz handlowac</h4>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Para</th>
+								<th>Cena</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="pary in opCtrl.orders"  ng-click="opCtrl.loadData(pary.id)">
+								<td>{{pary.id}}</td>
+								<td>{{pary.pair}}.</td>
+								<td>{{pary.price}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			
+		
+			<!-- Wyœwietlanie szczegó³ów -->
+			<div ng-show="opCtrl.details">
+				<h2>{{opCtrl.details.pair.toUpperCase()}}</h2>
+				<p>Cena: {{opCtrl.details.price}}</p>
+				<input type = "text" placeholder="quantity" ng-model="opCtrl.openOrder.quantity"><br />
+				<button ng-click="opCtrl.openBuy()">Buy</button>
+				<button ng-click="opCtrl.openSell()">Sell</button>
+			</div>
+			
+			
+			<h4>Lista otwartych pozycji:</h4>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Para</th>
+								<th>Kierunek</th>
+								<th>Cena</th>
+								<th>Ilosc</th>
+							</tr>
+						</thead>
+						<tbody>
+								<tr ng-repeat="b in opCtrl.openOrders" ng-if="b.openClose == '1'">
+									<td>{{b.id}}</td>
+									<td>{{b.pair}}.</td>
+									<td>{{b.direction}}.</td>
+									<td>{{b.openPrice}}</td>
+									<td>{{b.quantity}}</td>
+									<td><button ng-click="opCtrl.close(b)">close</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+			<h4>Lista zamnkietych pozycji:</h4>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Para</th>
+								<th>Kierunek</th>
+								<th>Cena otwarcia</th>
+								<th>Cena zamkniecia</th>
+								<th>Zysk</th>
+								<th>Ilosc</th>
+							</tr>
+						</thead>
+						<tbody>
+								<tr ng-repeat="b in opCtrl.openOrders" ng-if="b.openClose == '0'">
+									<td>{{b.id}}</td>
+									<td>{{b.pair}}.</td>
+									<td>{{b.direction}}.</td>
+									<td>{{b.openPrice}}</td>
+									<td>{{b.closePrice}}</td>
+									<td>{{b.profit}}</td>
+									<td>{{b.quantity}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+		
+	
+			
+	</section>
+</div>
+<div ng-show="!authenticated"> 
+		<section id="One" class="wrapper style3">
+		<div class="inner">				
+			<header class="align-center">
+				<h2>Musisz najpeirw sie zalogowac</h2>
+			</header>
+			
+			<a href="angularMain.html#!/login"  class="button special">Login</a>
+			
+			
+		</div>
+	</section>
+</div>
